@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARJUN - Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        html { 
+            scroll-behavior: smooth; 
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            overscroll-behavior: none;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+        #home {
+            background-color:rgb(158, 200, 235);
+            transition: background-color 0.5s ease;
+        }
+        #home:hover {
+            background-color:rgb(158, 188, 235);
+        }
+        
+        #skills {
+            background-color: #fda085;
+            transition: background-color 0.5s ease;
+        }
+        #skills:hover {
+            background-color:rgba(143, 82, 65, 0.58);
+        }
+        
+        #resume {
+            background-color:rgb(247, 146, 107);
+            transition: background-color 0.5s ease;
+        }
+        #resume:hover {
+            background-color: #a1c4fd;
+        }
+        
+        #projects {
+            background-color: rgb(96, 236, 171);
+            transition: background-color 0.5s ease;
+        }
+        #projects:hover {
+            background-color:rgb(134, 191, 219);
+        }
+        
+        #certifications {
+            background-color: rgba(151, 212, 101, 0.67);
+            transition: background-color 0.5s ease;
+        }
+        #certifications:hover {
+            background-color:rgba(255, 154, 157, 0.67);
+        }
+        
+        #contact {
+            background-color: #f68084;
+            transition: background-color 0.5s ease;
+        }
+        #contact:hover {
+            background-color:rgb(241, 169, 172);
+        }
+        #home {
+            
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        /* Background Animation for Navbar */
+#mainNavbar {
+    background: linear-gradient(45deg, #ff7a18, #af002d, #3205a1);
+    background-size: 300% 300%;
+    animation: gradient 5s ease infinite;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Keyframes for Gradient */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Styling for Navbar Items */
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Navbar Items */
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #f8f9fa !important;
+    transform: scale(1.1);
+}
+
+/* Toggler Icon Style */
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
+/* Adjust Navbar for Mobile View */
+@media (max-width: 991px) {
+    #mainNavbar {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+    }
+}
+
+        .navbar {
+            transition: all 0.3s ease;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-nav .nav-link.active {
+            color:rgb(47, 139, 238) !important;
+            font-weight: bold;
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06);
+        }
+        .progress {
+            height: 20px;
+            border-radius: 10px;
+        }
+        .typing {
+            font-family: 'Arial', Courier, monospace;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid black; /* Cursor effect */
+            animation: typing 3s steps(20) 1s forwards, blink 0.75s step-end infinite;
+        }
+        
+        /* Typing effect animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 113%;
+            }
+        }
+        
+        /* Blinking cursor animation */
+        @keyframes blink {
+            0%,
+            50%,
+            100% {
+                border-color: transparent;
+            }
+            25%,
+            75% {
+                border-color: black;
+            }
+        }
+        
+        /* Position the social media icons on the right side */
+        .social-icons-right {
+            position: fixed;
+            top: 60%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .social-icons-right .social-icon {
+            font-size: 2rem;
+            color: #333;
+            padding: 10px;
+            transition: transform 0.3s ease-in-out, font-size 0.3s ease;
+        }
+        
+        .social-icons-right .social-icon:hover {
+            transform: scale(1.3); /* Grow the icon on hover */
+            font-size: 2.5rem; /* Make the icon bigger */
+        }
+        
+        /* Optional: Style for the rest of the section */
+        
+        
+        .btn-outline-dark {
+            border-color: #333;
+            color: #333;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .btn-outline-dark:hover {
+            color: #fff;
+            background-color: #333;
+            border-color: #333;
+        }
+        .navbar-brand {
+            font-family: 'Orbitron', sans-serif; /* Font that looks more like an icon */
+            font-size: 1.5rem; /* Size the text to be more prominent like an icon */
+            font-weight: 900; /* Make the font bold */
+            letter-spacing: 3px; /* Increase spacing between letters for an icon-like look */
+            text-transform: uppercase; /* Make text uppercase for style */
+            color: blue; /* Set a solid color */
+            text-shadow: 2px 2px 5px rgba(32, 214, 247, 0.2); /* Adding shadow effect */
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+          }
+        
+          /* Hover effect to make the text grow on hover */
+          .navbar-brand:hover {
+            transform: scale(1.1); /* Slightly increase size */
+            color: #007bff; /* Change color on hover */
+          }
+          
+          .skill-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-in-out;
+        }
+    
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+    
+        .skill-icon {
+            font-size: 40px;
+            color: #007bff;
+            margin-bottom: 15px;
+            display: block;
+            animation: bounce 1.5s infinite;
+        }
+    
+        .skill-list ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .skill-list li {
+            font-size: 16px;
+            text-align: left;
+        }
+    
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
+    <!-- Navigation -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">ARJUN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#resume">Internships</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#certifications">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+ <!-- Home Section -->
+<section id="home" class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <img src="static/icons/Photo.jpg" class="img-fluid rounded-circle mb-4 border" alt="Profile">
+            </div>
+            <div class="col-md-6">
+                <h1 class="display-4 typing">ARJUN THORLIKONDA</h1>
+                <h2 class="text-muted">Data Analyst | Business Analyst | Frontend Developer</h2>
+                <p class="lead mt-3">
+                    skilled professional with expertise in data analysis, business strategy, and front-end development, 
+                    focused on driving data-driven decisions, optimizing business processes, and creating user-friendly 
+                    interfaces. Passionate about turning data into insights, solving complex problems, and 
+                    delivering seamless digital experiences across technical and business domains.
+                </p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary me-2">Hire Me</a>
+                        <a href="static\icons\Arjun's_Resume.pdf" target="_blank" class="btn btn-outline-primary">Resume</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Social Media Icons on Right Side -->
+<section class="social-icons-right">
+    <div class="container">
+        <div class="d-flex flex-column align-items-end">
+            <a href="https://www.linkedin.com/in/arjun-thorlikonda-422b9a256/" target="_blank" class="social-icon mb-3">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/ARJUN151503" target="_blank" class="social-icon mb-3">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:arjunthorlikonda15@gmail.com" class="social-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Professional Skills</h2>
+        <div class="row text-center">
+
+            <!-- Programming Languages -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h4>Programming Languages</h4>
+                    <div class="skill-list">
+                        <ul class="multi-column">
+                            <li>&bull; Python</li> 
+                            <li>&bull; HTML/CSS</li>
+                            <li>&bull; SQL</li> 
+                           <!-- <li>&bull; C++</li> -->
+                        <!--  <li>&bull; Java</li> -->
+                          <!--  <li>&bull; Swift</li> -->
+                           <!-- <li>&bull; Linux</li> -->
+                           <!-- <li>&bull; R</li> -->
+                           <!-- <li>&bull; Go</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libraries & Frameworks -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <i class="fas fa-layer-group skill-icon"></i>
+                    <h4>Libraries & Frameworks</h4>
+                    <div class="skill-list">
+                        <ul class="multi-column">
+                            <li>&bull; Pandas</li> 
+                            <li>&bull; NumPy</li> 
+                            <li>&bull; TensorFlow</li> 
+                            <li>&bull; Flask</li> 
+                           <!-- <li>&bull; React</li> 
+                            <li>&bull; Angular</li> 
+                            <li>&bull; Django</li> 
+                            <li>&bull; Bootstrap</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Platforms -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <i class="fas fa-tools skill-icon"></i>
+                    <h4>Tools & Platforms</h4>
+                    <div class="skill-list">
+                        <ul class="multi-column">
+                            <li>&bull; Power BI</li> 
+                            <li>&bull; Tableau</li> 
+                            <li>&bull; Jupyter</li> 
+                            <li>&bull; Excel</li> 
+                            <!--<li>&bull; Linux</li> 
+                            <li>&bull; Docker</li>
+                            <li>&bull; Git</li> 
+                            <li>&bull; VS Code</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row text-center mt-4">
+
+            <!-- Databases -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h4>Databases</h4>
+                    <div class="skill-list">
+                        <ul class="multi-column">
+                            <li>&bull; MySQL</li> 
+                           <!-- <li>&bull; PostgreSQL</li> -->
+                           <!-- <li>&bull; MongoDB</li> -->
+                           <!-- <li>&bull; SQLite</li> -->
+                            <li>&bull; Oracle</li> 
+                          <!--  <li>&bull; Redis</li> -->
+                          <!--  <li>&bull; Firebase</li> -->
+                           <!-- <li>&bull; BigQuery</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Skills -->
+            <div class="col-md-4">
+                <div class="skill-card">
+                    <i class="fas fa-comments skill-icon"></i>
+                    <h4>Communication Skills</h4>
+                    <div class="skill-list">
+                        <ul class="multi-column">
+                            <li>&bull; Presentation Skills</li> 
+                            <li>&bull; Team Collaboration</li> 
+                            <li>&bull; Public Speaking</li> 
+                            <li>&bull; Active Listening</li> 
+                            <li>&bull; Leadership</li> 
+                            <!--<li>&bull; Negotiation</li> 
+                            <li>&bull; Verbal</li>
+                            <li>&bull; Conflict Resolution</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Professional Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Analyst</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Tech Innovations Inc.</h6>
+                            <p class="card-text">
+                                Developed data-driven insights, created interactive dashboards, 
+                                and implemented predictive analytics models to support strategic decision-making.
+                            </p>
+                            <span class="badge bg-primary">2022 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Junior Business Analyst</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Global Solutions LLC</h6>
+                            <p class="card-text">
+                                Conducted market research, prepared comprehensive reports, 
+                                and assisted in developing strategic recommendations for business growth.
+                            </p>
+                            <span class="badge bg-primary">2021 - 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Projects</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Sales Dashboard</h5>
+                            <p class="card-text">
+                                Interactive dashboard visualizing sales performance using Python and Plotly.
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Predictive Analytics Model</h5>
+                            <p class="card-text">
+                                Machine learning model for customer churn prediction using scikit-learn.
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Analytics Tool</h5>
+                            <p class="card-text">
+                                Full-stack web application for tracking and analyzing website traffic.
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Professional Certifications</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Google Data Analytics</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Coursera</h6>
+                            <p class="card-text">Comprehensive certification in data analysis techniques and tools.</p>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Python for Data Science</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">IBM</h6>
+                            <p class="card-text">Advanced Python programming for data science applications.</p>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 card-hover">
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Learning</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Stanford Online</h6>
+                            <p class="card-text">In-depth machine learning and artificial intelligence course.</p>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling and active navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll Progress Bar
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight;
+                const winHeight = window.innerHeight;
+                const scrollPercent = scrollTop / (docHeight - winHeight);
+                const scrollPercentRounded = Math.round(scrollPercent * 100);
+                
+                document.body.style.setProperty('--scroll', scrollPercentRounded + '%');
+                document.body.beforeElement.style.width = `${scrollPercentRounded}%`;
+            });
+        
+            // Section Reveal Animations
+            const sections = document.querySelectorAll('.section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+        
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, observerOptions);
+        
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        
+            // Skill Bar Animation
+            const skillBars = document.querySelectorAll('.progress-bar');
+            skillBars.forEach(bar => {
+                const value = bar.getAttribute('aria-valuenow');
+                bar.style.width = '0';
+                
+                const animateSkill = () => {
+                    bar.style.width = `${value}%`;
+                };
+        
+                const skillObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateSkill();
+                            skillObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+        
+                skillObserver.observe(bar);
+            });
+        
+            // Form Validation and Submission
+            const contactForm = document.querySelector('#contact form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = this.querySelector('input[type="text"]');
+                const email = this.querySelector('input[type="email"]');
+                const message = this.querySelector('textarea');
+                
+                // Enhanced Validation
+                const validateEmail = (email) => {
+                    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return re.test(String(email).toLowerCase());
+                };
+        
+                let isValid = true;
+        
+                // Validate Name
+                if (name.value.trim().length < 2) {
+                    name.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    name.classList.remove('is-invalid');
+                }
+        
+                // Validate Email
+                if (!validateEmail(email.value)) {
+                    email.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                }
+        
+                // Validate Message
+                if (message.value.trim().length < 10) {
+                    message.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    message.classList.remove('is-invalid');
+                }
+        
+                if (isValid) {
+                    // Simulated form submission
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Sending...';
+        
+                    // Simulate async submission
+                    setTimeout(() => {
+                        submitBtn.innerHTML = 'Message Sent!';
+                        contactForm.reset();
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Send Message';
+                        }, 2000);
+                    }, 1500);
+                }
+            });
+        
+            // Smooth Scrolling
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+        });
