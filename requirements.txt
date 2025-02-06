@@ -130,7 +130,7 @@ toml==0.10.2
 toolz==1.0.0
 tornado==6.4.1
 traitlets==5.14.3
-typing-extensions==4.5.0
+typing-extensions==4.9.0
 tzdata==2024.1
 tzlocal==5.2
 urllib3==2.2.3
